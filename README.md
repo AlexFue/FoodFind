@@ -4,8 +4,8 @@ App to find new foods and make them yourself.
 
 
 Frontend: Android 
-Backend: Springboot
-Database: JawsDB
+Backend: Django
+Database: Postgres
 
 ## Contributors
 - Edward Cluster (ecluster): https://github.com/ecluster
