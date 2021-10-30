@@ -9,6 +9,12 @@
 *.ap_
 *.aab
 
+__pycache__
+db.sqlite3
+media
+
+/env
+
 # Files for the ART/Dalvik VM
 *.dex
 
