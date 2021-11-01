@@ -11,7 +11,7 @@ class Recipe(models.Model):
     user = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
     name = models.CharField('Name', max_length=100)
     description = models.CharField('Description', max_length=500)
-    image = models.ImageField(upload_to='images')
+    image = models.URLField('Image URL')
 
 class FoodList(models.Model):
     foodListId = models.AutoField(primary_key=True)
