@@ -21,4 +21,5 @@ urlpatterns = [
 
     #API URLs
     path('api/', include('RestAPI.SagarAPIs.urls')),
+    path('api/', include('RestAPI.EdwardAPIs.urls')),
 ]
