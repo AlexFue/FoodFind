@@ -1,7 +1,7 @@
 from django.urls import path
 from django.urls.resolvers import URLPattern
-from .views import getSavedRecipesOfUser
-
+from . import views
 urlpatterns = [
-    path('<userId>/get/', getSavedRecipesOfUser, name='get'),
+    path('<userId>/get/', views.getSavedRecipesOfUser, name='get'),
+    path('<userId>/<recipeId>/remove/', views.removeSavedRecipe, name='remove'),
 ]

@@ -8,6 +8,7 @@ from .serializers import RecipeSerializer
 from .serializers import SavedFoodsSerializer
 from ..models import User
 from ..models import SavedFoods
+from ..models import Recipe
 
 @api_view(['GET'])
 def getSavedRecipesOfUser(request, userId):
@@ -17,3 +18,12 @@ def getSavedRecipesOfUser(request, userId):
     recipes = savedFoodsList.recipes.all()
     serializer = RecipeSerializer(recipes, many=True)
     return Response(serializer.data)
+
+@api_view(['GET'])
+def removeSavedRecipe(request, userId, recipeId):
+    user = User.objects.get(userId=userId)
+    savedFoodList = SavedFoods.objects.get(user=user)
+    recipe = Recipe.objects.get(recipeId=recipeId)
+    savedFoodList.recipes.remove(recipe)
+    return Response(SavedFoodsSerializer(savedFoodList).data)
+
