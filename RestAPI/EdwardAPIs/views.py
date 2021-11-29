@@ -13,6 +13,7 @@ from ..models import User
 from ..models import FoodList
 from .serializer import RecipeSerializer
 from .serializer import UserSerializer
+from .serializer import LoginSerializer
 from .. import views
 
 
@@ -42,6 +43,12 @@ def create_user_api(request, u_name, u_username, u_password):
             'username': u_username,
             'password': u_password
         }
+
+        user_taken = found_user_name(u_username)
+        if user_taken:
+            data = {'success': 'bad', 'message': 'username already taken'}
+            return Response(data, status=status.HTTP_200_OK)
+
         serializer = UserSerializer(data=user_data)
         if serializer.is_valid():
             # Save the new user
@@ -57,11 +64,12 @@ def create_user_api(request, u_name, u_username, u_password):
             # create food list
             # issues creating the food list
             print("Type: ", type(user_obj))
-            food_list = FoodList.objects.create(new_user_json['userId'])
+            food_list = FoodList.objects.create(user=user_obj)
 
             # save it
             food_list.save()
-            return Response(status=status.HTTP_201_CREATED)
+            data = {'success': 'Good', 'message': 'Created account'}
+            return Response(data, status=status.HTTP_201_CREATED)
         return Response(serializer.data, status=status.HTTP_406_NOT_ACCEPTABLE)
 
 
@@ -70,11 +78,62 @@ def create_user_api(request, u_name, u_username, u_password):
 def login_api(request, u_username, u_password):
     if request.method == 'POST':
         # API endpoint: '[url]/api/login/'
-        username = u_username
-        password = u_password
-        authenticated = authenticate(username=username, password=password)
-        if authenticated is not None:
-            user = User.objects.get(username=username)
-            serializer = UserSerializer(user, many=False)
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response("Not a valid username or password", status=status.HTTP_400_BAD_REQUEST)
+        valid_user = found_user_name(u_username)
+        valid_password = found_password(u_username, u_password)
+        data = {}
+        if valid_user and valid_password:
+            data['success'] = 'good'
+            user = User.objects.get(username=u_username)
+            print("UserId for " + u_username + " = ", user.userId)
+            request.session['password'] = u_password
+            request.session['username'] = u_username
+            request.session['userId'] = user.userId
+            request.session['name'] = user.name
+            return Response(data, status=status.HTTP_200_OK)
+        else:
+            data['success'] = 'bad'
+            print('%%%%%\n', valid_user, valid_password)
+            if valid_user and not valid_password:
+                data['status'] = 'bad password'
+                return Response(data, status=status.HTTP_200_OK)
+            elif not valid_user:
+                data['status'] = 'bad username'
+                return Response(data, status=status.HTTP_200_OK)
+    return Response("Not a valid username or password", status=status.HTTP_400_BAD_REQUEST)
+
+
+# Logout
+@api_view(['POST'])
+def logout_api(request):
+    data = {}
+    del request.session['userId']
+    del request.session['username']
+    del request.session['password']
+    del request.session['name']
+    data['success'] = 'good'
+    data['message'] = 'Log out is successful'
+    return Response(data, status=status.HTTP_200_OK)
+
+
+def found_user_name(u_name):
+    users = User.objects.all()
+    serializer = UserSerializer(users, many=True)
+    user_list = json.loads(json.dumps(serializer.data))
+    found_user = False
+    for obj in user_list:
+        if obj['username'] == u_name:
+            found_user = True
+            break
+    return found_user
+
+
+def found_password(u_name, u_pass):
+    users = User.objects.all()
+    serializer = UserSerializer(users, many=True)
+    user_list = json.loads(json.dumps(serializer.data))
+    found_pass = False
+    for obj in user_list:
+        if obj['username'] == u_name and obj['password'] == u_pass:
+            found_pass = True
+            break
+    return found_pass
