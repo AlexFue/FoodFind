@@ -14,6 +14,8 @@
             android:exported="true" />
         <activity android:name=".CreateAnAccount" />
         <activity android:name=".Login" />
+        <activity android:name=".Home" />
+        <activity android:name=".ProfilePage" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
