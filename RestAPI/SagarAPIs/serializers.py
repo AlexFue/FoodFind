@@ -8,6 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['userId', 'name', 'username', 'password']
 
 class RecipeSerializer(serializers.ModelSerializer):
+    user = UserSerializer(many=False)
     class Meta: 
         model = Recipe
         fields = ['recipeId', 'user', 'name', 'description', 'image']
