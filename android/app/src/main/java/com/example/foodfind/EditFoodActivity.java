@@ -15,7 +15,6 @@ public class EditFoodActivity extends AppCompatActivity {
     private EditText et_name;
     private EditText et_description;
     private EditText et_image;
-    private Button btn_update;
     private Bundle bun;
 
     // on render, get name, description, and image of recipe from intent and set it.
@@ -26,7 +25,6 @@ public class EditFoodActivity extends AppCompatActivity {
         et_name = findViewById(R.id.et_name);
         et_description = findViewById(R.id.et_description);
         et_image = findViewById(R.id.et_image);
-        btn_update = findViewById(R.id.btn_update);
         bun = getIntent().getExtras();
 
         et_name.setText(bun.getString("name"), TextView.BufferType.EDITABLE);
@@ -34,7 +32,7 @@ public class EditFoodActivity extends AppCompatActivity {
         et_image.setText(bun.getString("image"), TextView.BufferType.EDITABLE);
     }
 
-    public void signIn(View view) {
+    public void update(View view) {
         String name = String.valueOf(et_name.getText());
         String description = String.valueOf(et_description.getText());
         String image = String.valueOf(et_image.getText());
@@ -43,6 +41,7 @@ public class EditFoodActivity extends AppCompatActivity {
         clearFocus();
         switch (result) {
             case "valid":
+                // ***************** add code to insert new data into recipe *****************
                 break;
             case "empty name":
                 emptyName();
@@ -109,8 +108,8 @@ public class EditFoodActivity extends AppCompatActivity {
     }
 
     public void back(View view) {
-        Intent x = new Intent(this, ProfilePage.class);
-        startActivity(x);
+//        Intent x = new Intent(this, ProfilePage.class);
+//        startActivity(x);
         finish();
     }
 }
