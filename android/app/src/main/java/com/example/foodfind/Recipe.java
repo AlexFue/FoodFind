@@ -2,17 +2,17 @@ package com.example.foodfind;
 
 public class Recipe {
     private int recipeId;
-    private int user;
+    private int userId;
     private String name;
     private String description;
     private String image;
 
-    public int getRecipeId() {
+    public int getRecipeId(){
         return recipeId;
     }
 
-    public int getUser() {
-        return user;
+    public int getUserId() {
+        return userId;
     }
 
     public String getName() {
@@ -25,5 +25,12 @@ public class Recipe {
 
     public String getImage() {
         return image;
+    }
+
+    public Recipe(int userId, String name, String description, String image) {
+        this.userId = userId;
+        this.name = name;
+        this.description = description;
+        this.image = image;
     }
 }
