@@ -4,7 +4,7 @@ from RestAPI.SagarAPIs.views import *
 
 urlpatterns = [
     path('create_food/', create_food, name='create_food_view'), 
-    path('create_food/<str:pk>/', create_food_by_userId, name='create_food_by_userId_view'),
+    path('create_food_by_userId/<str:pk>/', create_food_by_userId, name='create_food_by_userId_view'),
     path('create_food_by_user/<str:pk1>/<str:pk2>/<str:pk3>', create_food_by_user, name='create_food_by_user_view'),
     path('delete_food_by_user/<str:pk1>/<str:pk2>/<str:pk3>', delete_food_by_user, name='delete_food_by_user_view'),
     path('update_food_by_user/<str:pk1>/<str:pk2>/<str:pk3>', update_food_by_user, name='update_food_by_user_view'),
