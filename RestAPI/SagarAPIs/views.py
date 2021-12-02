@@ -8,13 +8,26 @@ from .serializers import UserSerializer, RecipeSerializer, FoodListSerializer
 
 
 #Create a food/recipe by userId
+#[url]/create_food/
+@api_view(['POST'])
+def create_food(request): 
+    if request.method == 'POST':
+        serializer = RecipeSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response("Item NOT created!", status=status.HTTP_400_BAD_REQUEST)
+
+
+#Create a food/recipe by userId
 #[url]/create_food/<userId>
 @api_view(['POST'])
-def create_food(request, pk): 
+def create_food_by_userId(request, pk): 
     if request.method == 'POST':
         user = User.objects.get(userId=pk)
         recipe = Recipe.objects.create(user=user, name=request.data["name"], description=request.data["description"], image=request.data["image"])
         recipe.save()
+
 
         serializer = RecipeSerializer(recipe, many=False)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -109,11 +122,17 @@ def view_recipe_by_id(request, pk):
     serializer = RecipeSerializer(recipe, many=False)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
+@api_view(['GET'])
+def view_foodlist(request):
+    foodlist = FoodList.objects.all()
+    serializer = FoodListSerializer(foodlist, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
 #view foodlist by user_id
 #[url]/view_foodlist/<id>
 @api_view(['GET'])
 def view_foodlist_by_userId(request, pk):
-    user = User.objects.get(id=pk)
+    user = User.objects.get(userId=pk)
     foodlist = FoodList.objects.get(user=user)
     serializer = FoodListSerializer(foodlist, many=False)
     return Response(serializer.data, status=status.HTTP_200_OK)
