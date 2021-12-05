@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodFind">
+        <activity android:name=".CreateNewRecipeActivity" />
         <activity
             android:name=".EditFoodActivity"
             android:exported="true" />
