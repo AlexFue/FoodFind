@@ -53,7 +53,7 @@
             android:layout_below="@+id/tv_name"
             android:layout_centerHorizontal="true"
             android:fontFamily="sans-serif"
-            android:text="test_add"
+            android:text="Username:"
             android:textAllCaps="true"
             android:textColor="@color/address"
             android:textSize="14sp" />
@@ -62,8 +62,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="15dp"
             android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
             android:src="@drawable/ic_settings" />
@@ -80,7 +80,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+
             android:layout_weight="1"
             android:background="@color/followersBg"
             android:gravity="center"
@@ -93,19 +93,21 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
+                <!-- This is for the BIO AND DESCRIPTION -->
+
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:fontFamily="sans-serif-light"
-                    android:text="test"
+                    android:text="Bio"
                     android:textColor="@color/white"
                     android:textSize="25sp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="178dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="test"
+                    android:text="user bio "
                     android:textAllCaps="true"
                     android:textColor="@color/white"
                     android:textSize="13sp" />
@@ -114,178 +116,11 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@color/followingBg"
-            android:gravity="center"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:text="test"
-                    android:textColor="@color/white"
-                    android:textSize="25sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:text="test"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textSize="13sp" />
-
-            </LinearLayout>
-
-        </RelativeLayout>
 
     </LinearLayout>
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/linlay1">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Email"
-                    android:textColor="@color/headings"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:text="test@test"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@color/grey" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="test"
-                    android:textColor="@color/headings"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:text="test"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@color/grey" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="test"
-                    android:textColor="@color/headings"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:text="@string/twitterUsername"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@color/grey" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="test"
-                    android:textColor="@color/headings"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:text="random"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@color/grey" />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
 
     </RelativeLayout>
 
-</RelativeLayout>
