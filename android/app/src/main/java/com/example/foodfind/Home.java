@@ -91,7 +91,7 @@ public class Home extends AppCompatActivity {
 
         // below is the url for getting data
         // from API in json format.
-        String url = "http://com.example.foodfind/view_foods_by_user_view";
+        String url = "URL stuff ";
 
         // below line we are  creating a new request queue.
         RequestQueue queue = Volley.newRequestQueue(Home.this);
