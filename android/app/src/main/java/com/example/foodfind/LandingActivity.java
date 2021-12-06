@@ -33,6 +33,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         switch (view.getId()){
             case R.id.loginButton:
 //                startActivity(FactoryIntent.getIntent(LoginActivity.class,getApplicationContext()));
+                // pass in the userId here, I think
                 break;
             case R.id.signUpButton:
 //                startActivity(FactoryIntent.getIntent(CreateActivity.class,getApplicationContext()));

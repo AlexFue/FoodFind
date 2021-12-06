@@ -19,9 +19,6 @@ public class Login extends AppCompatActivity {
         EditText user, password;
         user = findViewById(R.id.etLoginEmail);
         password = findViewById(R.id.etLoginPassword);
-//        if(user != null && password != null){
-//            Toast.makeText(this,"You logged in", Toast.LENGTH_LONG).show();
-//        }
 
         loginBtn1 = findViewById(R.id.btnLogin1);
 
