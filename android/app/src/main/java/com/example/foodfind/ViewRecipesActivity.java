@@ -25,7 +25,7 @@ public class ViewRecipesActivity extends AppCompatActivity{
         textViewResult = findViewById(R.id.text_view_result);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("")
+                .baseUrl("https://myawesomefoodfindapp.herokuapp.com/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -45,7 +45,8 @@ public class ViewRecipesActivity extends AppCompatActivity{
 
                 for (Recipe recipe : recipes) {
                     String content = "";
-                    content += "User ID: " + recipe.getUserId() + "\n";
+                    content += "User Id: " + recipe.getUserId() + "\n";
+                    content += "Username: " + recipe.getUsername() + "\n";
                     content += "Name: " + recipe.getName() + "\n";
                     content += "Description " + recipe.getDescription() + "\n";
                     content += "Image" + recipe.getImage() + "\n\n";
