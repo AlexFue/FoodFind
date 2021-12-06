@@ -7,7 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
+    <color name="whiteGray">#FFFFFFFF</color>
     <color name="colorPrimary">#49BEFF</color>
     <color name="colorPrimaryDark">#65DCE5</color>
     <color name="colorAccent">#0D5D98</color>
@@ -22,5 +22,6 @@
     <color name="followersBg">#65DCE5</color>
     <color name="followingBg">#49BEFF</color>
     <color name="grey">#E5E5E5</color>
-
+    <color name="backgroundBottom"></color>
+    <color name="backgroundTop"></color>
 </resources>
