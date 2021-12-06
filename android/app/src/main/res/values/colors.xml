@@ -7,8 +7,6 @@
     <color name="colorBlack">#000000</color>
     <color name="accent">#9C27B0</color>
     <color name="darkPurple">#684875</color>
-
-    ////
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -31,5 +29,4 @@
     <color name="followersBg">#65DCE5</color>
     <color name="followingBg">#49BEFF</color>
     <color name="grey">#E5E5E5</color>
-
 </resources>
