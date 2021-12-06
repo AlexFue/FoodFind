@@ -31,7 +31,7 @@ public class CreateNewRecipeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_new_recipe);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("")
+                .baseUrl("https://myawesomefoodfindapp.herokuapp.com/api")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

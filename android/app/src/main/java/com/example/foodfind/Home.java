@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
+import com.example.foodfind.API;
 
 import android.os.Bundle;
 import android.view.View;
@@ -66,7 +66,7 @@ public class Home extends AppCompatActivity {
                 if(view.getId() == R.id.addNewRecipeBtn){
 
                     Intent i = new Intent(view.getContext(), CreateNewRecipeActivity.class);
-                    //i.putExtra("userId", (Serializable) userId);
+                    //i.putExtra("userId", (Serializable) userId); trying to pass the userId here
                     startActivity(i);
                 }
             }
@@ -91,7 +91,7 @@ public class Home extends AppCompatActivity {
 
         // below is the url for getting data
         // from API in json format.
-        String url = "Enter your URL";
+        String url = "http://com.example.foodfind/view_foods_by_user_view";
 
         // below line we are  creating a new request queue.
         RequestQueue queue = Volley.newRequestQueue(Home.this);
