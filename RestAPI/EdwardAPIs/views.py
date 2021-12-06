@@ -1,5 +1,5 @@
 # libraries for django and REST APIs
-from rest_framework import status
+from rest_framework import serializers, status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 import json
@@ -90,14 +90,15 @@ def login_api(request, u_username, u_password):
         valid_password = found_password(u_username, u_password)
         data = {}
         if valid_user and valid_password:
-            data['success'] = 'good'
+            # data['success'] = 'good'
             user = User.objects.get(username=u_username)
             print("UserId for " + u_username + " = ", user.userId)
+            serializer = UserSerializer(user, many=False)
             request.session['password'] = u_password
             request.session['username'] = u_username
             request.session['userId'] = user.userId
             request.session['name'] = user.name
-            return Response(data, status=status.HTTP_200_OK)
+            return Response(serializer.data, status=status.HTTP_200_OK)
         else:
             data['success'] = 'bad'
             print('%%%%%\n', valid_user, valid_password)
