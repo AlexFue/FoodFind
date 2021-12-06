@@ -7,10 +7,11 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
-// should be the landing page.
+
 
 public class MainActivity extends AppCompatActivity {
     public Button loginBtn, create_accountBtn, homeFeed;
+    private  Recipe userId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(view.getId() ==  R.id.btnHome){
                     Intent i = new Intent(view.getContext(), Home.class);
+                    //i.putExtra("userId", String.valueOf(userId));
                     startActivity(i);
                 }
             }
