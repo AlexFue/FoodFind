@@ -77,7 +77,7 @@ def create_user_api(request, u_name, u_username, u_password):
             save_list.save()
 
             data = {'success': 'Good', 'message': 'Created account'}
-            return Response(data, status=status.HTTP_201_CREATED)
+            return Response(serializer2.data, status=status.HTTP_201_CREATED)
         return Response(serializer.data, status=status.HTTP_406_NOT_ACCEPTABLE)
 
 
