@@ -8,56 +8,63 @@
 
     <EditText
         android:id="@+id/ImageId"
-        android:layout_width="215dp"
-        android:layout_height="50dp"
+        android:layout_width="230dp"
+        android:layout_height="60dp"
+        android:background="@color/whiteGray"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="New Image"
+        android:text="URL of an Image"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.188"
+        app:layout_constraintHorizontal_bias="0.273"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.587" />
+        app:layout_constraintVertical_bias="0.67" />
 
     <EditText
         android:id="@+id/descriptionId"
-        android:layout_width="335dp"
-        android:layout_height="120dp"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:background="@color/whiteGray"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="This is a description"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintHorizontal_bias="0.594"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.412" />
+        app:layout_constraintVertical_bias="0.456" />
 
     <EditText
         android:id="@+id/recipeNameId"
-        android:layout_width="215dp"
-        android:layout_height="50dp"
+        android:layout_width="230dp"
+        android:layout_height="60dp"
+        android:background="@color/whiteGray"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="New Recipe"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.188"
+        app:layout_constraintHorizontal_bias="0.259"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248" />
+        app:layout_constraintVertical_bias="0.24" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/titleId"
         android:layout_width="215dp"
         android:layout_height="50dp"
         android:textStyle="bold"
         android:text="Add New Recipe"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="@color/white"
         android:textSize="20dp"
-        android:background="#F2F3F5"
+        android:background="@color/purple_700"
+        android:textAllCaps="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,11 +77,11 @@
         android:layout_height="75dp"
         android:background="@color/colorAccent"
         android:text="Add Recipe"
-        android:textColor="#F2F3F5"
+        android:textColor="@color/whiteGray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.835" />
+        app:layout_constraintVertical_bias="0.881" />
 </androidx.constraintlayout.widget.ConstraintLayout>

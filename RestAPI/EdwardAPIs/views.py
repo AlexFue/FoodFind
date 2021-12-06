@@ -11,6 +11,7 @@ import requests
 from ..models import Recipe
 from ..models import User
 from ..models import FoodList
+from ..models import SavedFoods
 from .serializer import RecipeSerializer
 from .serializer import UserSerializer
 from .serializer import LoginSerializer
@@ -68,8 +69,15 @@ def create_user_api(request, u_name, u_username, u_password):
 
             # save it
             food_list.save()
+
+            # create saved food list
+            save_list = SavedFoods.objects.create(user=user_obj)
+
+            # save it
+            save_list.save()
+
             data = {'success': 'Good', 'message': 'Created account'}
-            return Response(data, status=status.HTTP_201_CREATED)
+            return Response(serializer2.data, status=status.HTTP_201_CREATED)
         return Response(serializer.data, status=status.HTTP_406_NOT_ACCEPTABLE)
 
 

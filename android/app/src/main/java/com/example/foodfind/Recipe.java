@@ -2,7 +2,8 @@ package com.example.foodfind;
 
 public class Recipe {
     private int recipeId;
-    private int userId;
+    private User user;
+//    private int userId;
     private String name;
     private String description;
     private String image;
@@ -12,7 +13,11 @@ public class Recipe {
     }
 
     public int getUserId() {
-        return userId;
+        return user.getUserId();
+    }
+
+    public String getUsername() {
+        return user.getUsername();
     }
 
     public String getName() {
@@ -27,8 +32,7 @@ public class Recipe {
         return image;
     }
 
-    public Recipe(int userId, String name, String description, String image) {
-        this.userId = userId;
+    public Recipe(String name, String description, String image) {
         this.name = name;
         this.description = description;
         this.image = image;
