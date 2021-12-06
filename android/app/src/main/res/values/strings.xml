@@ -3,6 +3,6 @@
     <string name="create_acc">Create Account</string>
 
     <string name="profilepage">Profile UI</string>
-
+    <string name="profile_fragment">Profile</string>
     <string name="twitterUsername">\@random</string>
 </resources>
