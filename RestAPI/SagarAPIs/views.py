@@ -1,9 +1,37 @@
-from rest_framework import status
+from rest_framework import serializers, status
+from rest_framework import response
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.views.decorators.csrf import csrf_exempt
 from RestAPI.models import User, Recipe, FoodList
 from .serializers import UserSerializer, RecipeSerializer, FoodListSerializer
+
+
+#Create a food/recipe by userId
+#[url]/create_food/
+@api_view(['POST'])
+def create_food(request): 
+    if request.method == 'POST':
+        serializer = RecipeSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response("Item NOT created!", status=status.HTTP_400_BAD_REQUEST)
+
+
+#Create a food/recipe by userId
+#[url]/create_food/<userId>
+@api_view(['POST'])
+def create_food_by_userId(request, pk): 
+    if request.method == 'POST':
+        user = User.objects.get(userId=pk)
+        recipe = Recipe.objects.create(user=user, name=request.data["name"], description=request.data["description"], image=request.data["image"])
+        recipe.save()
+
+
+        serializer = RecipeSerializer(recipe, many=False)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response("Item NOT created!", status=status.HTTP_400_BAD_REQUEST)
 
 #Create a food/recipe in the FoodList by userId, foodListId, and recipeId
 #[url]/create_food_by_user/<userId>/<foodListId>/<recipeId>
@@ -75,10 +103,36 @@ def update_user(request, pk):
         return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-#view all items in Item
+#view all foods in Recipe 
 #[url]/view_items/
 @api_view(['GET'])
-def view_items(request):
+def view_recipes(request):
     foodlist = Recipe.objects.all()
     serializer = RecipeSerializer(foodlist, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+#view recipe by recipe_id in Recipe
+#[url]/view_recipe_by_id/<id>
+@api_view(['GET'])
+def view_recipe_by_id(request, pk):
+    try:
+        recipe = Recipe.objects.get(id=pk)
+    except:
+        return Response("ID not found", status=status.HTTP_400_BAD_REQUEST)
+    serializer = RecipeSerializer(recipe, many=False)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+def view_foodlist(request):
+    foodlist = FoodList.objects.all()
+    serializer = FoodListSerializer(foodlist, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+#view foodlist by user_id
+#[url]/view_foodlist/<id>
+@api_view(['GET'])
+def view_foodlist_by_userId(request, pk):
+    user = User.objects.get(userId=pk)
+    foodlist = FoodList.objects.get(user=user)
+    serializer = FoodListSerializer(foodlist, many=False)
     return Response(serializer.data, status=status.HTTP_200_OK)

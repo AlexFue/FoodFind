@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">FoodFind</string>
     <string name="create_acc">Create Account</string>
+
+    <string name="profilepage">Profile UI</string>
+
+    <string name="twitterUsername">\@random</string>
 </resources>
