@@ -76,9 +76,9 @@ public class CreateAnAccount extends AppCompatActivity {
                 User newUser = response.body();
                 userId = newUser.getUserId();
                 System.out.println(userId);
-                //                Intent i = new Intent(this, Login.class);
-//                i.putExtra(EXTRA_MESSAGE, userId);
-//                startActivity(i);
+                Intent i = new Intent(CreateAnAccount.this, Login.class);
+                i.putExtra(EXTRA_MESSAGE, userId);
+                startActivity(i);
             }
 
             @Override

@@ -91,7 +91,7 @@ public class Home extends AppCompatActivity {
 
         // below is the url for getting data
         // from API in json format.
-        String url = "URL stuff ";
+        String url = "https://myawesomefoodfindapp.herokuapp.com/api/view_recipes";
 
         // below line we are  creating a new request queue.
         RequestQueue queue = Volley.newRequestQueue(Home.this);
@@ -103,8 +103,10 @@ public class Home extends AppCompatActivity {
                     JSONArray dataArray = response.getJSONArray("data");
                     for (int i = 0; i < dataArray.length(); i++) {
                         // below line is to extract data from JSON file.
+
+                        //Need to return recipe name, image and description
                         JSONObject dataObj = dataArray.getJSONObject(i);
-                        String id = dataObj.getString("id");
+                        String id = dataObj.getString("userId");
                         String media_type = dataObj.getString("media_type");
                         String permalink = dataObj.getString("permalink");
                         String media_url = dataObj.getString("media_url");
