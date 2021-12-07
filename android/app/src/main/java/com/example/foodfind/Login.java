@@ -9,11 +9,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
 
 public class Login extends AppCompatActivity {
     private Button loginBtn1;
@@ -40,7 +44,9 @@ public class Login extends AppCompatActivity {
         loginBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //(user, password);
                 if(view.getId() == R.id.btnLogin1){
+
 //                    Intent i = new Intent(view.getContext(), Login.class);
 //                    startActivity(i);
                     loginUser();
@@ -64,6 +70,7 @@ public class Login extends AppCompatActivity {
                 if (!response.isSuccessful()) {
                     System.out.println(response.code());
                     return;
+
                 }
 
                 //200-300
@@ -79,4 +86,6 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
+
 }
