@@ -35,12 +35,13 @@ public class SavedFoodsActivity extends AppCompatActivity {
         api = retrofit.create(API.class);
 
         Button button = (Button) findViewById(R.id.addButton);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getSavedFoods();
-            }
-        });
+        getSavedFoods();
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getSavedFoods();
+//            }
+//        });
     }
 
     public void getSavedFoods(){
@@ -71,6 +72,5 @@ public class SavedFoodsActivity extends AppCompatActivity {
                 System.out.println(t.getMessage());
             }
         });
-
     }
 }

@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Home extends AppCompatActivity {
-    public Button profilebtn, addNewRecipeBtn;
+    public Button profilebtn, addNewRecipeBtn, viewSavedFoodsBtn;
     private Recipe userId;
 
     // creating variables for our requestqueue,
@@ -49,6 +49,7 @@ public class Home extends AppCompatActivity {
 
         profilebtn = findViewById(R.id.profileBtn);
         addNewRecipeBtn = findViewById(R.id.addNewRecipeBtn);
+        viewSavedFoodsBtn = findViewById(R.id.viewSavedFoodsBtn);
 
         profilebtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +68,15 @@ public class Home extends AppCompatActivity {
 
                     Intent i = new Intent(view.getContext(), CreateNewRecipeActivity.class);
                     //i.putExtra("userId", (Serializable) userId); trying to pass the userId here
+                    startActivity(i);
+                }
+            }
+        });
+        viewSavedFoodsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (view.getId() == R.id.viewSavedFoodsBtn) {
+                    Intent i = new Intent(view.getContext(), SavedFoodsActivity.class);
                     startActivity(i);
                 }
             }
