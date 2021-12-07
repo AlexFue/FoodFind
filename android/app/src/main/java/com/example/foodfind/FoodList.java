@@ -15,4 +15,8 @@ public class FoodList {
     public int getUserId() {
         return userId;
     }
+
+    public List<Recipe> getRecipes() {
+        return recipes;
+    }
 }

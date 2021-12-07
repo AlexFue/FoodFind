@@ -1,47 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Home">
-
-    <!--recycler view for displaying
-        our Instagram posts-->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/idRVInstaFeeds"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <!--progressbar for displaying
-        our loading indicator-->
-    <ProgressBar
-        android:id="@+id/idLoadingPB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:visibility="visible" />
+    android:background="@color/teal_700">
 
 
     <Button
         android:id="@+id/addNewRecipeBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#87ceeb"
-        android:gravity="center"
-        android:text="Add new Recipe"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="274dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:layout_width="99dp"
+        android:layout_height="52dp"
+        android:layout_marginLeft="56dp"
+        android:text="Add recipe"
+        app:layout_constraintLeft_toRightOf="@+id/homeTitle"
+        tools:layout_editor_absoluteY="11dp"
+        tools:ignore="MissingConstraints" />
+
 
     <Button
         android:id="@+id/profileBtn"
+        android:layout_width="99dp"
+        android:layout_height="52dp"
+        android:layout_marginRight="16dp"
+        android:text="Profile"
+        app:layout_constraintRight_toLeftOf="@+id/homeTitle"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/homeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#87ceeb"
-        android:text="Profile Page"
-        android:layout_marginRight="100dp"
-        android:layout_marginStart="250dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:text="Home"
+        android:textColor="@color/black"
+        android:textSize="35dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+
+
+    <TextView
+        android:id="@+id/homeRecipe1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginBottom="57dp"
+        android:gravity="center_horizontal"
+        android:text="Recipe 1"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/homeRecipe4"
+        app:layout_constraintEnd_toStartOf="@+id/homeRecipe2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/homeTitle"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/add1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="324dp"
+        android:text="Add"
+        app:layout_constraintEnd_toEndOf="@+id/homeRecipe1"
+        app:layout_constraintStart_toStartOf="@+id/homeRecipe1"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/homeRecipe2"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:layout_marginEnd="5dp"
+        android:gravity="center_horizontal"
+        android:text="Recipe 2"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/homeRecipe1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/homeRecipe1"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/add2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="58dp"
+        android:layout_marginEnd="58dp"
+        android:text="Add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/homeRecipe3"
+        app:layout_constraintTop_toBottomOf="@+id/homeRecipe2"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/homeRecipe3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="58dp"
+        android:gravity="center_horizontal"
+        android:text="Recipe 3"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/add3"
+        app:layout_constraintEnd_toStartOf="@+id/homeRecipe4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/add1"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/add3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginBottom="24dp"
+        android:text="Add"
+        app:layout_constraintBottom_toTopOf="@+id/logout_button"
+        app:layout_constraintStart_toStartOf="@+id/homeRecipe3"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/homeRecipe4"
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        android:layout_marginEnd="5dp"
+        android:gravity="center_horizontal"
+        android:text="Recipe 4"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/homeRecipe3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/homeRecipe3"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/add4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="58dp"
+        android:layout_marginEnd="58dp"
+        android:layout_marginBottom="24dp"
+        android:text="Add"
+        app:layout_constraintBottom_toTopOf="@+id/logout_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/homeRecipe4"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -56,5 +168,18 @@
         tools:ignore="MissingConstraints" />
 
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginBottom="4dp"
+        android:gravity="center"
+        android:text="Logout"
+        android:textColor="@color/colorBlack"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/add3"
+         />
 
+</androidx.constraintlayout.widget.ConstraintLayout>
