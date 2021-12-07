@@ -9,11 +9,20 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 
 public class Login extends AppCompatActivity {
     private Button loginBtn1;
@@ -28,19 +37,18 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://myawesomefoodfindapp.herokuapp.com/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        api = retrofit.create(API.class);
+        EditText user, password;
+        user = findViewById(R.id.etLoginEmail);
+        password = findViewById(R.id.etLoginPassword);
 
         loginBtn1 = findViewById(R.id.btnLogin1);
 
         loginBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //(user, password);
                 if(view.getId() == R.id.btnLogin1){
+
 //                    Intent i = new Intent(view.getContext(), Login.class);
 //                    startActivity(i);
                     loginUser();
@@ -64,6 +72,7 @@ public class Login extends AppCompatActivity {
                 if (!response.isSuccessful()) {
                     System.out.println(response.code());
                     return;
+
                 }
 
                 //200-300
@@ -79,4 +88,6 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
+
 }
