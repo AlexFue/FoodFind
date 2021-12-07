@@ -22,34 +22,32 @@ public class NavActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav);
 
-
-
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setSelectedItemId(R.id.home);
+        bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavMethod);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fl_wrapper, new HomeFragment()).commit();
     }
 
-    Fragment homeFragment = new HomeFragment();
-    Fragment createFragment = new CreateFragment();
-    Fragment savedFragment = new SavedFragment();
-    Fragment profileFragment = new ProfileFragment();
-
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
-                return true;
-
-            case R.id.create:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, createFragment).commit();
-                return true;
-
-            case R.id.saved:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, savedFragment).commit();
-                return true;
-            case R.id.profile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, profileFragment).commit();
-                return true;
+    private BottomNavigationView.OnNavigationItemSelectedListener bottomNavMethod =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Fragment frag = null;
+            switch (item.getItemId()) {
+                case R.id.home:
+                    frag=new HomeFragment();
+                    break;
+                case R.id.create:
+                    frag=new CreateFragment();
+                    break;
+                case R.id.saved:
+                    frag=new SavedFragment();
+                    break;
+                case R.id.profile:
+                    frag=new ProfileFragment();
+                    break;
+            }
+            getSupportFragmentManager().beginTransaction().replace(R.id.fl_wrapper, frag).commit();
+            return true;
         }
-        return false;
-    }
+    };
 }

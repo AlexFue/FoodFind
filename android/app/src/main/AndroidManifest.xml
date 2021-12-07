@@ -11,9 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodFind">
-        <activity
-            android:name=".NavActivity"
-            android:exported="true" />
+<!--        <activity-->
+<!--            android:name=".NavActivity"-->
+<!--            android:exported="true" />-->
         <activity android:name=".CreateNewRecipeActivity" />
         <activity
             android:name=".EditFoodActivity"
@@ -24,7 +24,7 @@
         <activity android:name=".ProfilePage" />
         <activity android:name=".SavedFoodsActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".NavActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
