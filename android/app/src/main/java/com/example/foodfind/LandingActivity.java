@@ -39,12 +39,6 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.loginButton:
                 Intent i = new Intent(view.getContext(), Home.class);
 
-                Bundle bundle = new Bundle();
-                bundle.putString("userId", String.valueOf(userId));
-                i.putExtras(bundle);
-
-                //i.putExtra("userId", (Parcelable) userId);
-
                 startActivity(i);
                 break;
             case R.id.signUpButton:
