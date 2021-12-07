@@ -39,10 +39,5 @@ public interface API {
     @POST("create-users-api/{u_name}/{u_username}/{u_password}/")
     Call<User> createNewUser(@Path("u_name") String u_name, @Path("u_username") String u_username, @Path("u_password") String u_password);
 
-//    {
-//        userid = ,
-//        name = ,
-//        username =,
-//        password =
-//    }
+
 }

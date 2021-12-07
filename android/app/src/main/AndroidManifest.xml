@@ -20,7 +20,7 @@
         <activity android:name=".Home" />
         <activity android:name=".ProfilePage" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LandingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
