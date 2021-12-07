@@ -44,6 +44,9 @@ public interface API {
     @POST("login-api/{u_username}/{u_password}")
     Call<User> loginUser(@Path("u_username") String username, @Path("u_password") String password);
 
+    @GET("save/{userId}/get/")
+    Call<List<Recipe>> getSavedFoods(@Path("userId") int userId);
+
 //    {
 //        userid = ,
 //        name = ,
