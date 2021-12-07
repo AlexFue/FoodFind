@@ -31,20 +31,18 @@ import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import org.w3c.dom.Text;
 
+
 public class Home extends AppCompatActivity  {
-    public Button profileBtn, addNewRecipeBtn, logoutBtn;
-    public int userId;
+    public Button profileBtn, addNewRecipeBtn, logoutBtn, viewSavedBtn;
+    public int userId1;
     private API api;
     public TextView homeRecipe1;
+    private Recipe userId;
 
-//    // creating variables for our requestqueue,
-//    // array list, progressbar, edittext,
-//    // image button and our recycler view.
-//    private RequestQueue mRequestQueue;
-//    private ArrayList<InstaModal> instaModalArrayList;
-//    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -53,6 +51,7 @@ public class Home extends AppCompatActivity  {
 
         profileBtn = findViewById(R.id.profileBtn);
         addNewRecipeBtn = findViewById(R.id.addNewRecipeBtn);
+        viewSavedFoodsBtn = findViewById(R.id.viewSavedFoodsBtn);
 
 
         profileBtn.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +81,7 @@ public class Home extends AppCompatActivity  {
                 }
             }
         });
+
 //        Retrofit retrofit = new Retrofit.Builder()
 //                .baseUrl("https://myawesomefoodfindapp.herokuapp.com/api/")
 //                .addConverterFactory(GsonConverterFactory.create())
@@ -91,10 +91,21 @@ public class Home extends AppCompatActivity  {
 //
 //        getUserFoodList();
 
+        viewSavedFoodsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (view.getId() == R.id.viewSavedFoodsBtn) {
+                    Intent i = new Intent(view.getContext(), SavedFoodsActivity.class);
+                    startActivity(i);
+                }
+            }
+        });
+
+
     }
 
 //    private void getUserFoodList() {
-//        userId = 1;
+//        userId1 = 1;
 //        Call<FoodList> call = api.getFoodListByUserId(userId);
 //        call.enqueue(new Callback<FoodList>() {
 //            @Override
