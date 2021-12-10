@@ -83,7 +83,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.loginButton:
-                Intent i = new Intent(view.getContext(), Home.class);
+                Intent i = new Intent(view.getContext(), Login.class);
 
                 startActivity(i);
                 break;

@@ -58,19 +58,21 @@ public class Home extends AppCompatActivity   {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_feed);
 
-        if(getIntent().hasExtra("select")) {
-            Home thing = getIntent().getParcelableExtra("select");
-            Log.d(TAG, "onCreate: "+ thing.toString());
-        }
+//        if(getIntent().hasExtra("select")) {
+//            Home thing = getIntent().getParcelableExtra("select");
+//            Log.d(TAG, "onCreate: "+ thing.toString());
+//        }
         Intent intent = getIntent();
-        userId= intent.getIntExtra("UserId: ", userId);
+        userId = intent.getIntExtra("UserId", 1);
+        System.out.println(userId);
+
         viewUserId = findViewById(R.id.viewUserId);
         //viewRecipe1 = findViewById(R.id.homeRecipe1);
         viewRecipe2 = findViewById(R.id.homeRecipe2);
        // viewRecipe3 = findViewById(R.id.homeRecipe3);
         viewRecipe4 = findViewById(R.id.homeRecipe4);
         viewUserFoodList = findViewById(R.id.viewUserFoodList);
-        intent.putExtra("select", userId);
+
 
         profileBtn = findViewById(R.id.profileBtn);
         addNewRecipeBtn = findViewById(R.id.addNewRecipeBtn);
@@ -89,9 +91,8 @@ public class Home extends AppCompatActivity   {
 
 
                     Intent i = new Intent(view.getContext(), ProfilePage.class);
-                    //TextView homeRecipe1 = (TextView)  findViewById(R.id.homeRecipe1);
-                   // String message = homeRecipe1.getText().toString();
-                    //i.putExtra(EXTRA_MESSAGE, message);
+                    System.out.println(userId);
+                    i.putExtra("UserId", userId);
                     startActivity(i);
                 }
                 //
@@ -102,6 +103,8 @@ public class Home extends AppCompatActivity   {
             public void onClick(View view) {
                 if(view.getId() == R.id.addNewRecipeBtn){
                     Intent i = new Intent(view.getContext(), CreateNewRecipeActivity.class);
+                    System.out.println(userId);
+                    i.putExtra("UserId", userId);
                     startActivity(i);
                 }
             }
@@ -112,6 +115,7 @@ public class Home extends AppCompatActivity   {
             public void onClick(View view) {
                 if (view.getId() == R.id.viewSavedFoodsBtn) {
                     Intent i = new Intent(view.getContext(), SavedFoodsActivity.class);
+                    i.putExtra("userId", userId);
                     startActivity(i);
                 }
             }
@@ -131,7 +135,6 @@ public class Home extends AppCompatActivity   {
     }
 
     private void getUserFoodList() {
-        userId = 1;
         Call<FoodList> call = api.getFoodListByUserId(userId);
         call.enqueue(new Callback<FoodList>() {
             @Override
