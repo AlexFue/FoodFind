@@ -44,13 +44,21 @@ public class NavActivity extends AppCompatActivity {
                     break;
                 case R.id.create:
                     frag=new CreateFragment();
+                    Intent a = new Intent(NavActivity.this, CreateNewRecipeActivity.class);
+                    startActivity(a);
                     break;
                 case R.id.saved:
                     frag=new SavedFragment();
+                    Intent b = new Intent(NavActivity.this, SavedFoodsActivity.class);
+                    startActivity(b);
                     break;
                 case R.id.profile:
                     frag=new ProfileFragment();
+                    Intent c = new Intent(NavActivity.this, ProfilePage.class);
+                    startActivity(c);
                     break;
+
+
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.fl_wrapper, frag).commit();
             return true;

@@ -2,6 +2,7 @@ package com.example.foodfind;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,10 +38,6 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        EditText user, password;
-        user = findViewById(R.id.etLoginEmail);
-        password = findViewById(R.id.etLoginPassword);
-
         loginBtn1 = findViewById(R.id.btnLogin1);
 
         loginBtn1.setOnClickListener(new View.OnClickListener() {
@@ -48,9 +45,6 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 //(user, password);
                 if(view.getId() == R.id.btnLogin1){
-
-//                    Intent i = new Intent(view.getContext(), Login.class);
-//                    startActivity(i);
                     loginUser();
 
                 }
@@ -78,7 +72,8 @@ public class Login extends AppCompatActivity {
                 //200-300
                 User user = response.body();
                 System.out.println(user.getUserId());
-
+                Intent i = new Intent(Login.this, Home.class);
+                startActivity(i);
 
             }
 
