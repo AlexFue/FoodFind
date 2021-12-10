@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+
+import android.content.Intent;
+
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -35,16 +38,27 @@ public class NavActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.home:
                     frag=new HomeFragment();
+                    Intent i = new Intent(NavActivity.this, Home.class);
+                    startActivity(i);
+
                     break;
                 case R.id.create:
                     frag=new CreateFragment();
+                    Intent a = new Intent(NavActivity.this, CreateNewRecipeActivity.class);
+                    startActivity(a);
                     break;
                 case R.id.saved:
                     frag=new SavedFragment();
+                    Intent b = new Intent(NavActivity.this, SavedFoodsActivity.class);
+                    startActivity(b);
                     break;
                 case R.id.profile:
                     frag=new ProfileFragment();
+                    Intent c = new Intent(NavActivity.this, ProfilePage.class);
+                    startActivity(c);
                     break;
+
+
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.fl_wrapper, frag).commit();
             return true;

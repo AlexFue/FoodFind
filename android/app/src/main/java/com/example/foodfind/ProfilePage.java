@@ -120,5 +120,3 @@ public class ProfilePage extends AppCompatActivity implements Serializable {
     }
 
 }
-
-

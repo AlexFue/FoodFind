@@ -3,6 +3,7 @@
     package="com.example.foodfind">
     <uses-permission android:name="android.permission.INTERNET" />
     <application
+
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -18,8 +19,11 @@
         <activity android:name=".Login" />
         <activity android:name=".Home" />
         <activity android:name=".ProfilePage" />
+
+        <activity android:name=".SavedFoodsActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LandingActivity"
+
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

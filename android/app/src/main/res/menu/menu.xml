@@ -19,4 +19,8 @@
         android:id="@+id/profile"
         android:title="Profile"
         android:icon="@drawable/ic_baseline_person_24"/>
+    <item
+        android:id="@+id/signup"
+        android:title="Signup"
+        android:icon="@drawable/ic_baseline_signup" />
 </menu>
