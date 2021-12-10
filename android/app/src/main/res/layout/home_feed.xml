@@ -196,17 +196,17 @@
         app:layout_constraintStart_toStartOf="@+id/homeRecipe4"
         tools:ignore="MissingConstraints" />
 
+
 <!--    <Button-->
 <!--        android:id="@+id/viewSavedFoodsBtn"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
 <!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_marginBottom="484dp"-->
-
 <!--        android:backgroundTint="#87ceeb"-->
 <!--        android:text="View Saved Foods"-->
-<!--        tools:ignore="MissingConstraints" />-->
-
+<!--        tools:ignore="MissingConstraints"-->
+<!--        tools:layout_editor_absoluteX="214dp"-->
+<!--        tools:layout_editor_absoluteY="82dp" />-->
 
     <Button
         android:id="@+id/logout_button"

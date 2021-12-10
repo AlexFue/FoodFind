@@ -75,7 +75,8 @@ public class Home extends AppCompatActivity   {
         profileBtn = findViewById(R.id.profileBtn);
         addNewRecipeBtn = findViewById(R.id.addNewRecipeBtn);
 
-        //viewSavedFoodsBtn = findViewById(R.id.viewSavedFoodsBtn);
+//        viewSavedFoodsBtn = findViewById(R.id.viewSavedFoodsBtn);
+
 
 
         profileBtn.setOnClickListener(new View.OnClickListener() {
