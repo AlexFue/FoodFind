@@ -94,6 +94,7 @@ public class Home extends AppCompatActivity   {
                     //i.putExtra(EXTRA_MESSAGE, message);
                     startActivity(i);
                 }
+                //
             }
         });
         addNewRecipeBtn.setOnClickListener(new View.OnClickListener() {
