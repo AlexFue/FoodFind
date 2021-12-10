@@ -3,10 +3,13 @@ package com.example.foodfind;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.widget.NestedScrollView;
 
 import java.util.List;
 
@@ -50,10 +53,10 @@ public class SavedFoodsActivity extends AppCompatActivity {
                 System.out.println("Response not broken yet");
                 for (int i = 0; i < response.body().getRecipes().size(); i++) {
                     String content = "";
+                    content += "Image: " + response.body().getRecipes().get(i).getImage() + "\n";
+                    content += "By: " + response.body().getRecipes().get(i).getUsername() + "\n";
                     content += "Recipe Name: " + response.body().getRecipes().get(i).getName() + "\n";
-                    System.out.println(response.body().getRecipes().get(i).getName());
-                    content += "Description: " + response.body().getRecipes().get(i).getDescription() + "\n";
-                    System.out.println(response.body().getRecipes().get(i).getDescription());
+                    content += "Description: " + response.body().getRecipes().get(i).getDescription() + "\n\n\n";
                     tvSavedFoods.append(content);
                 }
             }
