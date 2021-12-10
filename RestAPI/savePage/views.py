@@ -12,14 +12,11 @@ from ..models import Recipe
 
 @api_view(['GET'])
 def getSavedRecipesOfUser(request, userId):
-    try:
-        # user = User.objects.get(userId=request.session['userId']) #apply once combing front/back
-        user = User.objects.get(userId=userId) #delete once combing front/back
-        savedFoodsList = SavedFoods.objects.get(user=user)
-        recipes = savedFoodsList.recipes.all()
-    except:
-        return Response("User_ID is not found", status=status.HTTP_400_BAD_REQUEST)
-    return Response(RecipeSerializer(recipes, many=True).data, status=status.HTTP_200_OK)
+    # user = User.objects.get(userId=request.session['userId']) #apply once combing front/back
+    user = User.objects.get(userId=userId) #delete once combing front/back
+    savedFoodsList = SavedFoods.objects.get(user=user)
+    serializer = SavedFoodsSerializer(savedFoodsList, many=False)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 @api_view(['GET'])
 def removeSavedRecipe(request, userId, recipeId):
