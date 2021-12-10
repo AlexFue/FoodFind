@@ -1,6 +1,7 @@
 package com.example.foodfind;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
@@ -29,7 +30,7 @@ public class CreateNewRecipeActivity extends AppCompatActivity {
     private String recipeName;
     private String recipeDescription;
     private String imageURL;
-    private int userId = 1;
+    private int userId;
     private User user;
     private int foodListId;
     private int recipeId;
@@ -40,6 +41,9 @@ public class CreateNewRecipeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_new_recipe);
+
+        Intent intent = getIntent();
+        userId = intent.getIntExtra("UserId", 1);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://myawesomefoodfindapp.herokuapp.com/api/")

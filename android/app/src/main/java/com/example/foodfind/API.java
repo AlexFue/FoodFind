@@ -42,7 +42,7 @@ public interface API {
 
 
 //    login-api/<str:u_username>/<str:u_password>/
-    @POST("login-api/{u_username}/{u_password}")
+    @POST("login-api/{u_username}/{u_password}/")
     Call<User> loginUser(@Path("u_username") String username, @Path("u_password") String password);
 
     @GET("save/{userId}/get/")

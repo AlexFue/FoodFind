@@ -2,9 +2,14 @@ package com.example.foodfind;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 import com.example.foodfind.Home;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,45 +24,49 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ProfilePage extends AppCompatActivity implements Serializable {
 
-    public Button profileBtn, addNewRecipeBtn;
-    public int userId;
+    private int userId;
     private API api;
+    private TextView viewUserId;
+    private TextView viewUsername;
+    private TextView viewUserFoodList;
+    private Button homeButton;
+    private Button addRecipeButton;
+    private ImageView showRecipeImage;
+    private String image;
+    private Button removeRecipeButton;
+
     public final static String EXTRA_MESSAGE = "com.example.foodfind.MESSAGE";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profilepage);
 
+        Intent intent = getIntent();
+        userId = intent.getIntExtra("UserId", 1);
 
-//        Intent intent = getIntent();
-//        String message = intent.getStringExtra(Home.EXTRA_MESSAGE);
-//
-//        // Capture the layout's TextView and set the string as its text
-//        TextView textView = findViewById(R.id.homeRecipe1);
-//        textView.setText(message);
+        viewUserId = findViewById(R.id.viewUserId);
+        viewUsername = findViewById(R.id.viewUsername);
+        viewUserFoodList = findViewById(R.id.viewUserFoodList);
+        homeButton = findViewById(R.id.homeButton);
+        addRecipeButton = findViewById(R.id.addRecipeButton);
 
-        profileBtn = findViewById(R.id.profileBtn);
-        addNewRecipeBtn = findViewById(R.id.addNewRecipeBtn);
-
-        profileBtn.setOnClickListener(new View.OnClickListener() {
+        Button button1 = (Button) homeButton;
+        button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(view.getId() == R.id.profileBtn){
-                    Intent i = new Intent(view.getContext(), ProfilePage.class);
-                    startActivity(i);
-                }
+                Intent intent = new Intent(getApplicationContext(), Home.class);
+                intent.putExtra("UserId", userId);
+                startActivity(intent);
             }
         });
-        addNewRecipeBtn.setOnClickListener(new View.OnClickListener() {
+
+        Button button2 = (Button) addRecipeButton;
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(view.getId() == R.id.addNewRecipeBtn){
-                    Intent i = new Intent(view.getContext(), CreateNewRecipeActivity.class);
-                    //trying to pass the userId here
-                    i.putExtra("userId", (Serializable) userId);
-                    startActivity(i);
-                    System.out.println(userId);
-                }
+                Intent intent = new Intent(getApplicationContext(), CreateNewRecipeActivity.class);
+                intent.putExtra("UserId", userId);
+                startActivity(intent);
             }
         });
 
@@ -68,16 +77,11 @@ public class ProfilePage extends AppCompatActivity implements Serializable {
 
         api = retrofit.create(API.class);
 
-//        getUserFoodList();
-//        Bundle profileBtn = new Bundle();
-//        String receivingdata = profileBtn.getString("Key");
-//        TextView tv = (TextView) findViewById(R.id.homeRecipe1);
-//        tv.setText(receivingdata);
-
-
+        getUserFoodList();
     }
+
     private void getUserFoodList() {
-        userId = 1;
+        userId = 15;
 
         Call<FoodList> call = api.getFoodListByUserId(userId);
 
@@ -90,11 +94,21 @@ public class ProfilePage extends AppCompatActivity implements Serializable {
                 }
 
                 FoodList foodlists = response.body();
+                viewUserId.setText("User Id: " + Integer.toString(userId));
+
                 List<Recipe> recipes = foodlists.getRecipes();
+
                 for (Recipe recipe : recipes) {
                     System.out.println("recipe ID: " + recipe.getRecipeId());
                     System.out.println("recipe name" + recipe.getName());
 
+                    viewUsername.setText("Username: " + recipe.getUsername());
+                    String content = "";
+                    content += "Recipe Id: " + recipe.getUserId() + "\n";
+                    content += "Recipe Name: " + recipe.getName() + "\n";
+                    content += "Recipe Description: " + recipe.getDescription() + "\n";
+                    content += "Recipe Image: " + recipe.getImage() + "\n\n";
+                    viewUserFoodList.append(content);
                 }
             }
 
