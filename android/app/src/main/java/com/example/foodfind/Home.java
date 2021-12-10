@@ -106,24 +106,25 @@ public class Home extends AppCompatActivity   {
             }
         });
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://myawesomefoodfindapp.herokuapp.com/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        api = retrofit.create(API.class);
+       Retrofit retrofit = new Retrofit.Builder()
+               .baseUrl("https://myawesomefoodfindapp.herokuapp.com/api/")
+               .addConverterFactory(GsonConverterFactory.create())
+               .build();
 
-        getUserFoodList();
+       api = retrofit.create(API.class);
 
-//        viewSavedFoodsBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (view.getId() == R.id.viewSavedFoodsBtn) {
-//                    Intent i = new Intent(view.getContext(), SavedFoodsActivity.class);
-//                    startActivity(i);
-//                }
-//            }
-//        });
+       getUserFoodList();
+
+       viewSavedFoodsBtn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               if (view.getId() == R.id.viewSavedFoodsBtn) {
+                   Intent i = new Intent(view.getContext(), SavedFoodsActivity.class);
+                   startActivity(i);
+               }
+           }
+       });
 
 
     }

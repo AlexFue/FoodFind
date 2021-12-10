@@ -56,6 +56,15 @@ public class SavedFoodsActivity extends AppCompatActivity {
                     return;
                 }
                 tvSavedFoods = findViewById(R.id.tvSavedFoods);
+                List<Recipe> recipes = response.body();
+                for (Recipe recipe : recipes) {
+                    String content = "";
+                    content += "Recipe Name: " + recipe.getName() + "\n";
+                    System.out.println(recipe.getName());
+                    content += "Description: " + recipe.getDescription() + "\n";
+                    System.out.println(recipe.getDescription());
+                    tvSavedFoods.append(content);
+                }
                 for(int i = 0; i < response.body().size(); i++){
                     String content = "";
                     content += "Recipe Name: " + response.body().get(i).getName() + "\n";
