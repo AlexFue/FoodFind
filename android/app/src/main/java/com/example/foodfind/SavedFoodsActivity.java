@@ -3,10 +3,13 @@ package com.example.foodfind;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.widget.NestedScrollView;
 
 import java.util.List;
 
@@ -31,54 +34,38 @@ public class SavedFoodsActivity extends AppCompatActivity {
                 .baseUrl("https://myawesomefoodfindapp.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
+        tvSavedFoods = findViewById(R.id.tvSavedFoods);
         api = retrofit.create(API.class);
-
-        Button button = (Button) findViewById(R.id.addButton);
         getSavedFoods();
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                getSavedFoods();
-//            }
-//        });
     }
 
     public void getSavedFoods(){
-        Call<List<Recipe>> call = api.getSavedFoods(28);
+        Call<SavedFood> call = api.getSavedFoods(28);
 
-        call.enqueue(new Callback<List<Recipe>>() {
+        call.enqueue(new Callback<SavedFood>() {
             @Override
-            public void onResponse(Call<List<Recipe>> call, Response<List<Recipe>> response) {
+            public void onResponse(Call<SavedFood> call, Response<SavedFood> response) {
                 if (!response.isSuccessful()) {
                     tvSavedFoods = findViewById(R.id.tvSavedFoods);
                     System.out.println(response.code());
                     return;
                 }
-                tvSavedFoods = findViewById(R.id.tvSavedFoods);
-                List<Recipe> recipes = response.body();
-                for (Recipe recipe : recipes) {
+                System.out.println("Response not broken yet");
+                for (int i = 0; i < response.body().getRecipes().size(); i++) {
                     String content = "";
-                    content += "Recipe Name: " + recipe.getName() + "\n";
-                    System.out.println(recipe.getName());
-                    content += "Description: " + recipe.getDescription() + "\n";
-                    System.out.println(recipe.getDescription());
+                    content += "Image: " + response.body().getRecipes().get(i).getImage() + "\n";
+                    content += "By: " + response.body().getRecipes().get(i).getUsername() + "\n";
+                    content += "Recipe Name: " + response.body().getRecipes().get(i).getName() + "\n";
+                    content += "Description: " + response.body().getRecipes().get(i).getDescription() + "\n\n\n";
                     tvSavedFoods.append(content);
                 }
-                for(int i = 0; i < response.body().size(); i++){
-                    String content = "";
-                    content += "Recipe Name: " + response.body().get(i).getName() + "\n";
-                    content += "Description: " + response.body().get(i).getDescription() + "\n";
-                    tvSavedFoods.append(content);
-                }
-
             }
 
             @Override
-            public void onFailure(Call<List<Recipe>> call, Throwable t) {
+            public void onFailure(Call<SavedFood> call, Throwable t) {
                 tvSavedFoods = findViewById(R.id.tvSavedFoods);
                 tvSavedFoods.setText(t.getMessage());
-                System.out.println(t.getMessage());
+                System.out.println("Breaking!: " + t.getMessage());
             }
         });
     }

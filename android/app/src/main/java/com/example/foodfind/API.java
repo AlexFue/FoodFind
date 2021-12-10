@@ -47,7 +47,7 @@ public interface API {
 
 
     @GET("save/{userId}/get/")
-    Call<List<Recipe>> getSavedFoods(@Path("userId") int userId);
+    Call<SavedFood> getSavedFoods(@Path("userId") int userId);
 
 //    {
 //        userid = ,
