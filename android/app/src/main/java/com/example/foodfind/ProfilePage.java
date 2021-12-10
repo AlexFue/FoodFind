@@ -43,6 +43,7 @@ public class ProfilePage extends AppCompatActivity implements Serializable {
 
         Intent intent = getIntent();
         userId = intent.getIntExtra("UserId", 1);
+        System.out.println(userId);
 
         viewUserId = findViewById(R.id.viewUserId);
         viewUsername = findViewById(R.id.viewUsername);
@@ -81,7 +82,7 @@ public class ProfilePage extends AppCompatActivity implements Serializable {
     }
 
     private void getUserFoodList() {
-        userId = 15;
+
 
         Call<FoodList> call = api.getFoodListByUserId(userId);
 

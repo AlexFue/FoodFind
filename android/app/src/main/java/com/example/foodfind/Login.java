@@ -21,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
+
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
@@ -31,6 +31,7 @@ public class Login extends AppCompatActivity {
     private String username;
     private EditText passwordEdit;
     private String password;
+    private int userId;
     private API api;
 
     @Override
@@ -40,24 +41,33 @@ public class Login extends AppCompatActivity {
 
         loginBtn1 = findViewById(R.id.btnLogin1);
 
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://myawesomefoodfindapp.herokuapp.com/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        api = retrofit.create(API.class);
+
+
         loginBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //(user, password);
-                if(view.getId() == R.id.btnLogin1){
+
                     loginUser();
 
-                }
             }
         });
     }
 
     private void loginUser() {
+
         userEdit = findViewById(R.id.etLoginEmail);
         username = userEdit.getText().toString();
         passwordEdit = findViewById(R.id.etLoginPassword);
         password = userEdit.getText().toString();
-
+        System.out.println("Username: " + username);
+        System.out.println("Password: " + password);
         Call<User> call = api.loginUser(username, password);
 
         call.enqueue(new Callback<User>() {
@@ -71,8 +81,10 @@ public class Login extends AppCompatActivity {
 
                 //200-300
                 User user = response.body();
+                userId = user.getUserId();
                 System.out.println(user.getUserId());
                 Intent i = new Intent(Login.this, Home.class);
+                i.putExtra("UserId", userId);
                 startActivity(i);
 
             }

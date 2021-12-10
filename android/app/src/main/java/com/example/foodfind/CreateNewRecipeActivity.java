@@ -44,7 +44,7 @@ public class CreateNewRecipeActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         userId = intent.getIntExtra("UserId", 1);
-
+        System.out.println(userId);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://myawesomefoodfindapp.herokuapp.com/api/")
                 .addConverterFactory(GsonConverterFactory.create())
