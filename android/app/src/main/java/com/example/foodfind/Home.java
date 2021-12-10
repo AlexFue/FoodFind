@@ -65,9 +65,9 @@ public class Home extends AppCompatActivity   {
         Intent intent = getIntent();
         userId= intent.getIntExtra("UserId: ", userId);
         viewUserId = findViewById(R.id.viewUserId);
-        viewRecipe1 = findViewById(R.id.homeRecipe1);
+        //viewRecipe1 = findViewById(R.id.homeRecipe1);
         viewRecipe2 = findViewById(R.id.homeRecipe2);
-        viewRecipe3 = findViewById(R.id.homeRecipe3);
+       // viewRecipe3 = findViewById(R.id.homeRecipe3);
         viewRecipe4 = findViewById(R.id.homeRecipe4);
         viewUserFoodList = findViewById(R.id.viewUserFoodList);
         intent.putExtra("select", userId);
@@ -75,7 +75,7 @@ public class Home extends AppCompatActivity   {
         profileBtn = findViewById(R.id.profileBtn);
         addNewRecipeBtn = findViewById(R.id.addNewRecipeBtn);
 
-//        viewSavedFoodsBtn = findViewById(R.id.viewSavedFoodsBtn);
+        viewSavedFoodsBtn = findViewById(R.id.viewSavedFoodsBtn);
 
 
 
@@ -89,9 +89,9 @@ public class Home extends AppCompatActivity   {
 
 
                     Intent i = new Intent(view.getContext(), ProfilePage.class);
-                    TextView homeRecipe1 = (TextView)  findViewById(R.id.homeRecipe1);
-                    String message = homeRecipe1.getText().toString();
-                    i.putExtra(EXTRA_MESSAGE, message);
+                    //TextView homeRecipe1 = (TextView)  findViewById(R.id.homeRecipe1);
+                   // String message = homeRecipe1.getText().toString();
+                    //i.putExtra(EXTRA_MESSAGE, message);
                     startActivity(i);
                 }
             }
@@ -106,6 +106,15 @@ public class Home extends AppCompatActivity   {
             }
         });
 
+        viewSavedFoodsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (view.getId() == R.id.viewSavedFoodsBtn) {
+                    Intent i = new Intent(view.getContext(), SavedFoodsActivity.class);
+                    startActivity(i);
+                }
+            }
+        });
 
        Retrofit retrofit = new Retrofit.Builder()
                .baseUrl("https://myawesomefoodfindapp.herokuapp.com/api/")
@@ -116,15 +125,6 @@ public class Home extends AppCompatActivity   {
 
        getUserFoodList();
 
-       viewSavedFoodsBtn.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               if (view.getId() == R.id.viewSavedFoodsBtn) {
-                   Intent i = new Intent(view.getContext(), SavedFoodsActivity.class);
-                   startActivity(i);
-               }
-           }
-       });
 
 
     }

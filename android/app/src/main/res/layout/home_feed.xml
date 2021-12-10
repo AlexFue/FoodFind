@@ -9,162 +9,192 @@
 
     <Button
         android:id="@+id/addNewRecipeBtn"
-        android:layout_width="99dp"
-        android:layout_height="52dp"
-        android:layout_marginLeft="56dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="14dp"
         android:text="Add recipe"
-        app:layout_constraintLeft_toRightOf="@+id/homeTitle"
-        tools:layout_editor_absoluteY="11dp"
+        app:layout_constraintBottom_toTopOf="@+id/viewSavedFoodsBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/homeTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
-
 
     <Button
         android:id="@+id/profileBtn"
-        android:layout_width="99dp"
-        android:layout_height="52dp"
-        android:layout_marginRight="16dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="14dp"
         android:text="Profile"
-        app:layout_constraintRight_toLeftOf="@+id/homeTitle"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintBottom_toTopOf="@+id/viewSavedFoodsBtn"
+        app:layout_constraintEnd_toStartOf="@+id/homeTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/homeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="56dp"
         android:gravity="center_horizontal"
         android:text="Home"
         android:textColor="@color/black"
         android:textSize="35dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/addNewRecipeBtn"
+        app:layout_constraintStart_toEndOf="@+id/profileBtn"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/homeRecipe1"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:layout_marginStart="11dp"-->
+    <!--        android:layout_marginTop="58dp"-->
+    <!--        android:layout_marginEnd="5dp"-->
+    <!--        android:layout_marginBottom="57dp"-->
+    <!--        android:gravity="center_horizontal"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        android:textSize="25dp"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/homeRecipe3"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/viewSavedFoodsBtn"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/profileBtn"-->
+    <!--        tools:ignore="MissingConstraints" />-->
+
+    <!--    <Button-->
+    <!--        android:id="@+id/add1"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="Add"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/homeRecipe1"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/homeRecipe1"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/homeRecipe1"-->
+    <!--        tools:ignore="MissingConstraints" />-->
 
     <TextView
         android:id="@+id/viewUserId"
         android:layout_width="137dp"
         android:layout_height="26dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="93dp"
+        android:layout_marginBottom="93dp"
         android:background="@color/white"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintBottom_toTopOf="@+id/nestedScrollView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/homeTitle"
-        app:layout_constraintVertical_bias="0.128" />
-
-    <TextView
-        android:id="@+id/homeRecipe1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="58dp"
-        android:layout_marginBottom="57dp"
-        android:gravity="center_horizontal"
-        android:textColor="@color/black"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/homeRecipe4"
-        app:layout_constraintEnd_toStartOf="@+id/homeRecipe2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/homeTitle"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/add1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="324dp"
-        android:text="Add"
-        app:layout_constraintEnd_toEndOf="@+id/homeRecipe1"
-        app:layout_constraintStart_toStartOf="@+id/homeRecipe1"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="@+id/addNewRecipeBtn"
+        app:layout_constraintVertical_bias="0.163" />
 
     <TextView
         android:id="@+id/homeRecipe2"
         android:layout_width="0dp"
-        android:layout_height="250dp"
-        android:layout_marginEnd="5dp"
-        android:gravity="center_horizontal"
-
-        android:textColor="@color/black"
-        android:textSize="25dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/homeRecipe1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/homeRecipe1"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/add2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="58dp"
-        android:layout_marginEnd="58dp"
-        android:text="Add"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/homeRecipe3"
-        app:layout_constraintTop_toBottomOf="@+id/homeRecipe2"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/homeRecipe3"
-        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="57dp"
         android:layout_marginEnd="4dp"
-        android:layout_marginBottom="58dp"
-        android:gravity="center_horizontal"
 
+        android:gravity="center_horizontal"
         android:textColor="@color/black"
         android:textSize="25dp"
-        app:layout_constraintBottom_toBottomOf="@+id/add3"
-        app:layout_constraintEnd_toStartOf="@+id/homeRecipe4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/add1"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+
         tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/add3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginBottom="24dp"
-        android:text="Add"
-        app:layout_constraintBottom_toTopOf="@+id/logout_button"
-        app:layout_constraintStart_toStartOf="@+id/homeRecipe3"
-        tools:ignore="MissingConstraints" />
+    <!--    <Button-->
+    <!--        android:id="@+id/add2"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="58dp"-->
+    <!--        android:layout_marginTop="324dp"-->
+    <!--        android:layout_marginEnd="58dp"-->
+    <!--        android:text="Add"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        tools:ignore="MissingConstraints" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/homeRecipe3"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="211dp"-->
+    <!--        android:layout_marginStart="11dp"-->
+
+    <!--        android:layout_marginEnd="4dp"-->
+    <!--        android:gravity="center_horizontal"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        android:textSize="25dp"-->
+    <!--        app:layout_constraintBaseline_toBaselineOf="@+id/homeRecipe4"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/homeRecipe4"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        tools:ignore="MissingConstraints" />-->
+
+    <!--    <Button-->
+    <!--        android:id="@+id/add3"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:layout_marginEnd="6dp"-->
+    <!--        android:text="Add"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/logout_button"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/homeRecipe3"-->
+    <!--        tools:ignore="MissingConstraints" />-->
 
 
     <TextView
         android:id="@+id/homeRecipe4"
         android:layout_width="0dp"
-        android:layout_height="220dp"
-        android:layout_marginEnd="5dp"
-        android:gravity="center_horizontal"
+        android:layout_height="0dp"
+        android:layout_marginTop="57dp"
 
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="49dp"
+        android:gravity="center_horizontal"
         android:textColor="@color/black"
         android:textSize="25dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/homeRecipe3"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/homeRecipe3"
+
+        app:layout_constraintTop_toTopOf="@+id/add2"
         tools:ignore="MissingConstraints" />
 
 
+    <!--    <Button-->
+    <!--        android:id="@+id/add4"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="57dp"-->
+    <!--        android:layout_marginEnd="57dp"-->
+    <!--        android:layout_marginBottom="24dp"-->
+    <!--        android:text="Add"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/logout_button"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/homeRecipe1"-->
+    <!--        tools:ignore="MissingConstraints" />-->
+
+
     <androidx.core.widget.NestedScrollView
-        android:layout_width="350dp"
+        android:id="@+id/nestedScrollView"
+        android:layout_width="0dp"
         android:layout_height="300dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/viewUserId"
-        app:layout_constraintVertical_bias="0.364">
+        app:layout_constraintTop_toBottomOf="@+id/viewSavedFoodsBtn">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -176,24 +206,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:textColor="#000"
-                />
+                android:textColor="#000" />
 
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
     <Button
-        android:id="@+id/add4"
+        android:id="@+id/viewSavedFoodsBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="58dp"
-        android:layout_marginEnd="58dp"
-        android:layout_marginBottom="24dp"
-        android:text="Add"
-        app:layout_constraintBottom_toTopOf="@+id/logout_button"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#87ceeb"
+        android:text="View Saved Foods"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/homeRecipe4"
+
+        app:layout_constraintTop_toBottomOf="@+id/homeTitle"
         tools:ignore="MissingConstraints" />
 
 
@@ -212,14 +242,13 @@
         android:id="@+id/logout_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="16dp"
         android:gravity="center"
         android:text="Logout"
         android:textColor="@color/black"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/add3"
-         />
+        tools:layout_editor_absoluteX="124dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
