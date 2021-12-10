@@ -51,7 +51,7 @@ public class Home extends AppCompatActivity  {
 
         profileBtn = findViewById(R.id.profileBtn);
         addNewRecipeBtn = findViewById(R.id.addNewRecipeBtn);
-        viewSavedFoodsBtn = findViewById(R.id.viewSavedFoodsBtn);
+//        viewSavedFoodsBtn = findViewById(R.id.viewSavedFoodsBtn);
 
 
         profileBtn.setOnClickListener(new View.OnClickListener() {
@@ -91,15 +91,15 @@ public class Home extends AppCompatActivity  {
 //
 //        getUserFoodList();
 
-        viewSavedFoodsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (view.getId() == R.id.viewSavedFoodsBtn) {
-                    Intent i = new Intent(view.getContext(), SavedFoodsActivity.class);
-                    startActivity(i);
-                }
-            }
-        });
+//        viewSavedFoodsBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (view.getId() == R.id.viewSavedFoodsBtn) {
+//                    Intent i = new Intent(view.getContext(), SavedFoodsActivity.class);
+//                    startActivity(i);
+//                }
+//            }
+//        });
 
 
     }
